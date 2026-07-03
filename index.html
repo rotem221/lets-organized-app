@@ -22,7 +22,7 @@
   <nav class="nav-links">
     <a href="#features">Features</a>
     <a href="#screens">Screens</a>
-    <a class="btn btn-sm" href="#download">Download</a>
+    <a class="btn btn-sm" id="navDownload" href="#download">Download</a>
   </nav>
 </header>
 
@@ -37,10 +37,10 @@
         project in your favorite editor.
       </p>
       <div class="cta" id="download">
-        <a class="btn btn-lg" href="https://github.com/rotem221/lets-organized-app/releases/latest">
+        <a class="btn btn-lg" href="https://github.com/rotem221/lets-organized-app/releases/latest/download/LetsOrganized-macOS.dmg" download>
           <span class="btn-ic">↓</span> Download for macOS
         </a>
-        <a class="btn btn-lg btn-alt" href="https://github.com/rotem221/lets-organized-app-win/releases/latest">
+        <a class="btn btn-lg btn-alt" href="https://github.com/rotem221/lets-organized-app-win/releases/latest/download/LetsOrganized-win-Setup.exe" download>
           <span class="btn-ic">↓</span> Download for Windows
         </a>
       </div>
@@ -89,8 +89,8 @@
     <h2>Get organized.</h2>
     <p>Free, native, and cross-platform. Your library stays on your computer.</p>
     <div class="cta cta-center">
-      <a class="btn btn-lg" href="https://github.com/rotem221/lets-organized-app/releases/latest">Download for macOS</a>
-      <a class="btn btn-lg btn-alt" href="https://github.com/rotem221/lets-organized-app-win/releases/latest">Download for Windows</a>
+      <a class="btn btn-lg" href="https://github.com/rotem221/lets-organized-app/releases/latest/download/LetsOrganized-macOS.dmg" download>Download for macOS</a>
+      <a class="btn btn-lg btn-alt" href="https://github.com/rotem221/lets-organized-app-win/releases/latest/download/LetsOrganized-win-Setup.exe" download>Download for Windows</a>
     </div>
   </section>
 </main>
@@ -106,6 +106,22 @@
     <img src="assets/dnp-white.png" alt="DNP" height="28" />
   </a>
 </footer>
+
+<script>
+  // Make the nav "Download" button download directly for the visitor's OS.
+  (function () {
+    var MAC = "https://github.com/rotem221/lets-organized-app/releases/latest/download/LetsOrganized-macOS.dmg";
+    var WIN = "https://github.com/rotem221/lets-organized-app-win/releases/latest/download/LetsOrganized-win-Setup.exe";
+    var ua = (navigator.userAgent + " " + (navigator.platform || "")).toLowerCase();
+    var isWin = ua.indexOf("win") !== -1;
+    var isMac = ua.indexOf("mac") !== -1 || ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1;
+    var btn = document.getElementById("navDownload");
+    if (btn && (isWin || isMac)) {
+      btn.setAttribute("href", isWin ? WIN : MAC);
+      btn.setAttribute("download", "");
+    }
+  })();
+</script>
 
 </body>
 </html>
