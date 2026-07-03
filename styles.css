@@ -200,7 +200,25 @@ section h2 {
 @media (min-width: 900px) {
   .hero { grid-template-columns: 1fr 1.08fr; align-items: center; }
   .hero-copy { padding-right: 10px; }
-  .shot-card { flex-basis: min(46%, 480px); }
+
+  /* Desktop "See it": alternating image/description rows, uniform image size */
+  .shots-scroll {
+    flex-direction: column; overflow: visible; scroll-snap-type: none;
+    gap: clamp(30px, 4vw, 52px);
+    max-width: var(--max); margin-inline: auto;
+    padding: 8px var(--pad) 0;
+  }
+  .shot-card {
+    flex: none; display: grid; grid-template-columns: 1.45fr 1fr;
+    gap: clamp(30px, 4vw, 54px); align-items: center;
+  }
+  /* Alternate sides — swap the columns so the IMAGE stays in the wide one
+     (keeps every screenshot the same size). */
+  .shot-card:nth-child(even) { grid-template-columns: 1fr 1.45fr; }
+  .shot-card:nth-child(even) img { grid-column: 2; grid-row: 1; }
+  .shot-card:nth-child(even) figcaption { grid-column: 1; grid-row: 1; }
+  .shot-card figcaption { font-size: 18px; }
+  .shot-card figcaption strong { font-size: clamp(21px, 2.6vw, 26px); margin-bottom: 6px; }
 }
 
 /* ===== Desktop / large ===== */
