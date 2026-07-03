@@ -68,13 +68,19 @@
 
   <section id="screens" class="screens">
     <h2>See it</h2>
-    <div class="shot">
-      <img src="assets/screenshot-board.png" alt="Planning board" loading="lazy" />
-      <div class="shot-cap"><strong>Plan visually.</strong> Sticky notes, arrows and files on a free-form canvas.</div>
-    </div>
-    <div class="shot reverse">
-      <img src="assets/screenshot-kanban.png" alt="Kanban tasks" loading="lazy" />
-      <div class="shot-cap"><strong>Track work.</strong> Drag tasks across To Do, In Progress and Done.</div>
+    <div class="shots-scroll" role="list">
+      <figure class="shot-card" role="listitem">
+        <img src="assets/screenshot-grid.png" alt="Project grid" loading="lazy" />
+        <figcaption><strong>Every project.</strong> Grid or list, with git status at a glance.</figcaption>
+      </figure>
+      <figure class="shot-card" role="listitem">
+        <img src="assets/screenshot-board.png" alt="Planning board" loading="lazy" />
+        <figcaption><strong>Plan visually.</strong> Sticky notes and arrows on a free-form canvas.</figcaption>
+      </figure>
+      <figure class="shot-card" role="listitem">
+        <img src="assets/screenshot-kanban.png" alt="Kanban tasks" loading="lazy" />
+        <figcaption><strong>Track work.</strong> Drag tasks across To Do, In Progress and Done.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -91,6 +97,11 @@
 
 <footer class="footer">
   <span>Created with <span class="heart">❤</span> by Rotem Dadon</span>
+  <nav class="footer-links">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="accessibility.html">Accessibility</a>
+  </nav>
   <a href="https://dnp.co.il" target="_blank" rel="noopener">
     <img src="assets/dnp-white.png" alt="DNP" height="28" />
   </a>
